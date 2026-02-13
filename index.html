@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paw Patrol Birthday Party Invitation</title>
+    <title>Charlie's Paw Patrol Birthday Party</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;600;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -33,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* Floating clouds animation */
         .cloud {
             position: absolute;
             background: white;
@@ -67,7 +66,6 @@
             50% { transform: translateX(calc(100vw + 200px)) translateY(-20px); }
         }
 
-        /* Paw prints background */
         .paw-print {
             position: absolute;
             opacity: 0.1;
@@ -109,7 +107,6 @@
             }
         }
 
-        /* Badge decorations */
         .badge {
             position: absolute;
             width: 80px;
@@ -240,6 +237,11 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
+        .rsvp-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         .rsvp-list {
             background: white;
             padding: 30px;
@@ -282,12 +284,10 @@
     </style>
 </head>
 <body>
-    <!-- Floating clouds -->
     <div class="cloud cloud-1"></div>
     <div class="cloud cloud-2"></div>
     <div class="cloud cloud-3"></div>
 
-    <!-- Paw prints scattered around -->
     <div class="paw-print" style="top: 15%; left: 10%;">🐾</div>
     <div class="paw-print" style="top: 40%; right: 15%;">🐾</div>
     <div class="paw-print" style="bottom: 20%; left: 20%;">🐾</div>
@@ -295,46 +295,45 @@
 
     <div class="container">
         <div class="invitation-card">
-            <!-- Decorative badges -->
             <div class="badge badge-1">🦴</div>
             <div class="badge badge-2">⭐</div>
             <div class="badge badge-3">🎈</div>
             <div class="badge badge-4">🎉</div>
 
             <div class="header">
-                <h1 class="title" id="mainTitle">You're Invited!</h1>
+                <h1 class="title">You're Invited!</h1>
                 <h2 class="subtitle">Paw Patrol Birthday Adventure</h2>
             </div>
 
             <div class="details-section">
                 <div class="detail-item">
                     <span class="detail-icon">🎂</span>
-                    <span>Join <span id="childName">Charlie</span> for a PAW-some birthday celebration!</span>
+                    <span>Join Charlie for a PAW-some birthday celebration!</span>
                 </div>
 
                 <div class="detail-item">
                     <span class="detail-icon">🎯</span>
-                    <span>Turning <span id="age">3</span> years old!</span>
+                    <span>Turning 3 years old!</span>
                 </div>
 
                 <div class="detail-item">
                     <span class="detail-icon">📅</span>
-                    <span>Date: <span id="date">Friday, April 18th, 2025</span></span>
+                    <span>Date: Friday, April 18th, 2025</span>
                 </div>
 
                 <div class="detail-item">
                     <span class="detail-icon">⏰</span>
-                    <span>Time: <span id="time">4:00 PM - 6:00 PM</span></span>
+                    <span>Time: 4:00 PM - 6:00 PM</span>
                 </div>
 
                 <div class="detail-item">
                     <span class="detail-icon">📍</span>
-                    <span>Location: <span id="location">The Merion Cricket Club Kids Clubhouse</span></span>
+                    <span>Location: The Merion Cricket Club Kids Clubhouse</span>
                 </div>
 
                 <div class="detail-item">
                     <span class="detail-icon">📞</span>
-                    <span>Contact: <span id="contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="92e1fefdf3fcf7bcf0f7f3e4f7e0d2f5fff3fbfebcf1fdff">[email&#160;protected]</a> or (804) 310-7432</span></span>
+                    <span>Contact: sloane.beaver@gmail.com or (804) 310-7432</span>
                 </div>
             </div>
 
@@ -350,7 +349,7 @@
                         <option value="yes">Yes, I'll be there! 🎉</option>
                         <option value="no">Sorry, can't make it 😢</option>
                     </select>
-                    <input type="number" id="guestCount" placeholder="Number of guests" min="1" max="10">
+                    <input type="number" id="guestCount" placeholder="Number of guests" min="1" max="10" value="1">
                     <button type="submit" class="rsvp-button">Send RSVP</button>
                 </form>
             </div>
@@ -362,7 +361,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // EmailJS Configuration
         const EMAILJS_PUBLIC_KEY = 'Iwpq0sOwtJ5Uz1Bzu';
         const EMAILJS_SERVICE_ID = 'service_5x6qd28';
