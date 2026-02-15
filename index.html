@@ -6,7 +6,7 @@
     <title>Charlie's Paw Patrol Birthday Party</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;600;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabaseClient/supabaseClient-js@2"></script>
     <style>
         :root {
             --primary-blue: #1e3a8a;
@@ -367,17 +367,17 @@
         const EMAILJS_SERVICE_ID = 'service_5x6qd28';
         const EMAILJS_TEMPLATE_ID = 'template_4sqm8zs';
 
-        // Supabase Configuration
-        const SUPABASE_URL = 'https://wlbzjjpfepoyqywopqfg.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndsYnpqanBmZXBveXF5d29wcWZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA5OTYxNjUsImV4cCI6MjA4NjU3MjE2NX0.s5ExzHQvBhp5xe2mnXCklaVbzPvCFASRr_vjkNmHOoo';
+        // supabaseClient Configuration
+        const supabaseClient_URL = 'https://wlbzjjpfepoyqywopqfg.supabaseClient.co';
+        const supabaseClient_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndsYnpqanBmZXBveXF5d29wcWZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA5OTYxNjUsImV4cCI6MjA4NjU3MjE2NX0.s5ExzHQvBhp5xe2mnXCklaVbzPvCFASRr_vjkNmHOoo';
 
         // Initialize EmailJS
         (function() {
             emailjs.init(EMAILJS_PUBLIC_KEY);
         })();
 
-        // Initialize Supabase
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        // Initialize supabaseClient
+        const supabaseClient = window.supabaseClient.createClient(supabaseClient_URL, supabaseClient_ANON_KEY);
 
         // Load RSVPs when page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -386,7 +386,7 @@
 
         async function loadRSVPs() {
             try {
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('rsvps')
                     .select('*')
                     .eq('attending', true)
@@ -447,8 +447,8 @@
             submitButton.disabled = true;
             
             try {
-                // Save to Supabase database
-                const { data, error } = await supabase
+                // Save to supabaseClient database
+                const { data, error } = await supabaseClient
                     .from('rsvps')
                     .insert([
                         {
