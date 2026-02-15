@@ -377,7 +377,7 @@
         })();
 
         // Initialize Supabase
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // Load RSVPs when page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -386,7 +386,7 @@
 
         async function loadRSVPs() {
             try {
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('rsvps')
                     .select('*')
                     .eq('attending', true)
@@ -448,7 +448,7 @@
             
             try {
                 // Save to Supabase database
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('rsvps')
                     .insert([
                         {
